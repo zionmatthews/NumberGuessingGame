@@ -14,27 +14,35 @@ namespace NumberGuessingGame
 
         bool correct = false;
         int guess;
-        int max;
-        int min;
+        int max = 100;
+        int min = 1;
+
+        int[] arr = new int[number];
+
+        
 
 
         static void Main(string[] args)
         {
-            
-
-            string choice = "";
-
-            //Asking the player what to do.
-            Console.WriteLine("Please think of a whole number between 1-100");
-            Console.WriteLine("");
-            Console.WriteLine("When you're done. Please press enter");
-            Console.ReadLine();
-
-            if(choice == "enter")
+            while(choice != "0")
             {
-                NumberGuess();
+                string choice = "";
+
+                //Asking the player what to do.
+                Console.WriteLine("Please think of a whole number between 1-100");
+                Console.WriteLine("");
+                Console.WriteLine("When you're done. Please type in : ready");
+                Console.WriteLine("If you wish to stop playing, type: 0");
+                Console.ReadLine();
+
+                if (choice == "ready")
+                {
+                    NumberGuess();
+                }
+
             }
 
+            
             
            
 
@@ -50,7 +58,7 @@ namespace NumberGuessingGame
                 {
                     Console.WriteLine("Oh, I got it. GG");
 
-                    return;
+                    return Main();
                 }
                 else if(choice == "no")
                 {
@@ -71,11 +79,41 @@ namespace NumberGuessingGame
             Console.WriteLine("Is  the number lower or higher? (lower/higher)");
             if (choice == "lower")
             {
-
+                max();
             }
             else if (choice == "higher")
             {
-                
+                min();
+            }
+        }
+
+        public int max
+        {
+            get
+            {
+                return max;
+            }
+            set
+            {
+                if(max < number)
+                {
+                    max = number;
+                }
+            }
+        }
+
+        public int min
+        {
+            get
+            {
+                return min;
+            }
+            set
+            {
+                if(min > number)
+                {
+                    min = number;
+                }
             }
         }
 
