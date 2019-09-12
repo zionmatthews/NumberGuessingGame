@@ -8,8 +8,7 @@ namespace NumberGuessingGame
 {
     class Program
     {
-        Random rand = new Random();
-        int number = rand.Next(1, 100);
+       
 
 
         bool correct = false;
@@ -42,14 +41,17 @@ namespace NumberGuessingGame
 
             }
 
-            
-            
-           
+            Random rand = new Random();
+            int number = rand.Next(1, 100);
+
+
 
         }
         public static void NumberGuess()
         {
-            
+
+            Random rand = new Random();
+            int number = rand.Next(1, 100);
 
             while (!correct)
             {
