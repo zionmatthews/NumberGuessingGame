@@ -8,8 +8,16 @@ namespace NumberGuessingGame
 {
     class Program
     {
-         
-        
+        Random rand = new Random();
+        int number = rand.Next(1, 100);
+
+
+        bool correct = false;
+        int guess;
+        int max;
+        int min;
+
+
         static void Main(string[] args)
         {
             
@@ -27,29 +35,47 @@ namespace NumberGuessingGame
                 NumberGuess();
             }
 
-            //Generating the random number
-            Random rand = new Random();
-            rand.Next(1, 100);
-
-
+            
            
 
         }
-        public static void NumberGuess(Random rand = new Random())
+        public static void NumberGuess()
         {
-            bool correct = true;           
+            
 
-            while (rand != correct)
+            while (!correct)
+            {
+                Console.WriteLine("Is this your number? (yes/no) :", number);
+                if(choice == "yes")
+                {
+                    Console.WriteLine("Oh, I got it. GG");
+
+                    return;
+                }
+                else if(choice == "no")
+                {
+                    HighOrLow();
+                }
+
+                
+
+
+
+
+
+
+            }
+        }
+        public static void HighOrLow()
+        {
+            Console.WriteLine("Is  the number lower or higher? (lower/higher)");
+            if (choice == "lower")
             {
 
-
-                foreach(int rand   ) 
-
-
-
-
-
-
+            }
+            else if (choice == "higher")
+            {
+                
             }
         }
 
