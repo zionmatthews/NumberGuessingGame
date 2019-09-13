@@ -17,7 +17,7 @@ namespace NumberGuessingGame
         public static int min;
       public static int number = 0;
       public static  Random rand = new Random();
-
+        public static int[] array;
        
 
 
@@ -27,18 +27,27 @@ namespace NumberGuessingGame
         static void Main(string[] args)
         {
 
-            string choice = "";
+            //Lets hope this works :P
 
+
+            Menu();
+
+        }
+
+
+        public static void  Menu()
+        {
+            string choice = "";
             while (choice != "0")
             {
-                
+
 
                 //Asking the player what to do.
                 Console.WriteLine("Please think of a whole number between 1-100");
                 Console.WriteLine("");
                 Console.WriteLine("When you're done. Please type in : ready");
                 Console.WriteLine("If you wish to stop playing, type: 0");
-                
+
 
                 choice = Console.ReadLine();
                 Console.WriteLine("");
@@ -50,11 +59,9 @@ namespace NumberGuessingGame
 
             }
 
-            
-
-
-
         }
+
+
         public static void NumberGuess()
         {
             number = rand.Next(1, 100);
@@ -72,7 +79,7 @@ namespace NumberGuessingGame
                 Console.Write("Oh sweet, I got it. GG");
                 Console.ReadLine();
 
-                return;
+                Menu();
             }
             else if(choice == "no")
             {
@@ -96,11 +103,41 @@ namespace NumberGuessingGame
             choice = Console.ReadLine();
             if (choice == "lower")
             {
-                
+                Max(number,array);
             }
             else if (choice == "higher")
             {
-                
+                Min(number,array);
+            }
+        }
+
+        public static void Max( int number, int[] array)
+        {
+            array = new int[number];
+
+            for(int i = 0; i < number; i++)
+            {
+                max = number;
+
+                Console.WriteLine("Ok, lets try again!");
+                Console.ReadLine();
+
+                NumberGuess();
+            }
+        }
+
+        public static void Min( int number, int[] array)
+        {
+            array = new int[number];
+
+            for(int i = 0; i < number; i++)
+            {
+                min = number;
+
+                Console.WriteLine("Ok, lets try again!");
+                Console.ReadLine();
+
+                NumberGuess();
             }
         }
 
