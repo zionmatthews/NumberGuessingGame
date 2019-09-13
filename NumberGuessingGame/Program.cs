@@ -11,28 +11,37 @@ namespace NumberGuessingGame
        
 
 
-        bool correct = false;
-        int guess;
-        int max = 100;
-        int min = 1;
+      public static  bool correct = false;
+      public static int guess;
+        public static int max;
+        public static int min;
+      public static int number = 0;
+      public static  Random rand = new Random();
 
-        int[] arr = new int[number];
+       
 
-        
+
+
 
 
         static void Main(string[] args)
         {
-            while(choice != "0")
+
+            string choice = "";
+
+            while (choice != "0")
             {
-                string choice = "";
+                
 
                 //Asking the player what to do.
                 Console.WriteLine("Please think of a whole number between 1-100");
                 Console.WriteLine("");
                 Console.WriteLine("When you're done. Please type in : ready");
                 Console.WriteLine("If you wish to stop playing, type: 0");
-                Console.ReadLine();
+                
+
+                choice = Console.ReadLine();
+                Console.WriteLine("");
 
                 if (choice == "ready")
                 {
@@ -41,83 +50,60 @@ namespace NumberGuessingGame
 
             }
 
-            Random rand = new Random();
-            int number = rand.Next(1, 100);
+            
 
 
 
         }
         public static void NumberGuess()
         {
+            number = rand.Next(1, 100);
 
-            Random rand = new Random();
-            int number = rand.Next(1, 100);
 
-            while (!correct)
+
+
+            string choice = "";
+
+
+            Console.WriteLine("Is this your number? (yes/no) :" + number);
+            choice = Console.ReadLine();
+            if(choice == "yes")
             {
-                Console.WriteLine("Is this your number? (yes/no) :", number);
-                if(choice == "yes")
-                {
-                    Console.WriteLine("Oh, I got it. GG");
+                Console.Write("Oh sweet, I got it. GG");
+                Console.ReadLine();
 
-                    return Main();
-                }
-                else if(choice == "no")
-                {
-                    HighOrLow();
-                }
-
-                
-
-
-
-
-
-
+                return;
             }
+            else if(choice == "no")
+            {
+                HighOrLow();
+            }
+
+
+
+
+
+
+
+
         }
         public static void HighOrLow()
         {
+            string choice = "";
+
+
             Console.WriteLine("Is  the number lower or higher? (lower/higher)");
+            choice = Console.ReadLine();
             if (choice == "lower")
             {
-                max();
+                
             }
             else if (choice == "higher")
             {
-                min();
+                
             }
         }
 
-        public int max
-        {
-            get
-            {
-                return max;
-            }
-            set
-            {
-                if(max < number)
-                {
-                    max = number;
-                }
-            }
-        }
-
-        public int min
-        {
-            get
-            {
-                return min;
-            }
-            set
-            {
-                if(min > number)
-                {
-                    min = number;
-                }
-            }
-        }
-
+      
     }
 }
